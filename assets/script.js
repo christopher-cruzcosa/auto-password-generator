@@ -14,46 +14,57 @@ function generatePassword() {
   var lowerCaseChar = false;
   var upperCaseChar = false;
   var specialChar = false;
+  var numChar = false;
 
-  lowerCaseChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following three types must be selected:\nLower Case, Upper Case, and/or Special Characters\n\nDo you want to use 'Lower Case' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
-  upperCaseChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following three types must be selected:\nLower Case, Upper Case, and/or Special Characters\n\nDo you want to use 'Upper Case' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
-  specialChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following three types must be selected:\nLower Case, Upper Case, and/or Special Characters\n\nDo you want to use 'Special' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
+  lowerCaseChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following four types must be selected:\nLower Case, Upper Case, Special Characters, and/or Numerals\n\nDo you want to use 'Lower Case' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
+  upperCaseChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following four types must be selected:\nLower Case, Upper Case, Special Characters, and/or Numerals\n\nDo you want to use 'Upper Case' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
+  specialChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following four types must be selected:\nLower Case, Upper Case, Special Characters, and/or Numerals\n\nDo you want to use 'Special' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
+  numChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following four types must be selected:\nLower Case, Upper Case, Special Characters, and/or Numerals\n\nDo you want to use 'Numeral' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
 
 
-  if (lowerCaseChar === true || upperCaseChar === true || specialChar === true) {
+  if (lowerCaseChar === true || upperCaseChar === true || specialChar === true || numChar === true) {
     characterTypeCount = true
   };
 
   while (characterTypeCount === false) {
-    alert("Sorry, you cannot move forward unti you select at least one\nof the following three types of characters:\n\nLower Case, Upper Case, and/or Special Characters");
-    lowerCaseChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following three types must be selected:\nLower Case, Upper Case, and/or Special Characters\n\nDo you want to use 'Lower Case' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
-    upperCaseChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following three types must be selected:\nLower Case, Upper Case, and/or Special Characters\n\nDo you want to use 'Upper Case' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
-    specialChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following three types must be selected:\nLower Case, Upper Case, and/or Special Characters\n\nDo you want to use 'Special' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
-    if (lowerCaseChar === true || upperCaseChar === true || specialChar === true) {
+    alert("Sorry, you cannot move forward unti you select at least one\nof the following four types of characters:\n\nLower Case, Upper Case, Special Characters, and/or Numerals");
+    lowerCaseChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following four types must be selected:\nLower Case, Upper Case, Special Characters, and/or Numerals\n\nDo you want to use 'Lower Case' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
+    upperCaseChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following four types must be selected:\nLower Case, Upper Case, Special Characters, and/or Numerals\n\nDo you want to use 'Upper Case' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
+    specialChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following four types must be selected:\nLower Case, Upper Case, Special Characters, and/or Numerals\n\nDo you want to use 'Special' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
+    numChar = confirm("Criteria 2 of 2: Character Type(s)\n\nNote that at least one of the following four types must be selected:\nLower Case, Upper Case, Special Characters, and/or Numerals\n\nDo you want to use 'Numeral' characters?\n('Ok' = 'Yes' and 'Cancel' = 'No')");
+    if (lowerCaseChar === true || upperCaseChar === true || specialChar === true || numChar === true) {
       characterTypeCount = true
     };
   }
 
 
-  if (lowerCaseChar === true && upperCaseChar === true && specialChar === true) {
-    alert("Thank you\n\nYou have selected: Lower Case, Upper Case, and Special Characters\n\nYou must really not want anyone to get in here lolz")
-  } else if (lowerCaseChar === true && upperCaseChar === false && specialChar === false) {
-    alert("Thank you\n\nYou have selected: Lower Case Characters only")
-  } else if (lowerCaseChar === true && upperCaseChar === false && specialChar === true) {
-    alert("Thank you\n\nYou have selected: Lower Case, and Special Characters")
-  } else if (lowerCaseChar === true && upperCaseChar === true && specialChar === false) {
-    alert("Thank you\n\nYou have selected: Lower Case and Upper Case Characters")
-  } else if (lowerCaseChar === false && upperCaseChar === true && specialChar === false) {
-    alert("Thank you\n\nYou have selected: Upper Case Characters only")
-  } else if (lowerCaseChar === false && upperCaseChar === true && specialChar === true) {
-    alert("Thank you\n\nYou have selected: Upper Case and Special Characters")
-  } else if (lowerCaseChar === false && upperCaseChar === false && specialChar === true) {
-    alert("Thank you\n\nYou have selected: Special Characters only")
-  };
+  // if (lowerCaseChar === true && upperCaseChar === true && specialChar === true) {
+  //   alert("Thank you\n\nYou have selected: Lower Case, Upper Case, and Special Characters\n\nYou must really not want anyone to get into your account, lolz")
+  // } else if (lowerCaseChar === true && upperCaseChar === false && specialChar === false) {
+  //   alert("Thank you\n\nYou have selected: Lower Case Characters only")
+  // } else if (lowerCaseChar === true && upperCaseChar === false && specialChar === true) {
+  //   alert("Thank you\n\nYou have selected: Lower Case, and Special Characters")
+  // } else if (lowerCaseChar === true && upperCaseChar === true && specialChar === false) {
+  //   alert("Thank you\n\nYou have selected: Lower Case and Upper Case Characters")
+  // } else if (lowerCaseChar === false && upperCaseChar === true && specialChar === false) {
+  //   alert("Thank you\n\nYou have selected: Upper Case Characters only")
+  // } else if (lowerCaseChar === false && upperCaseChar === true && specialChar === true) {
+  //   alert("Thank you\n\nYou have selected: Upper Case and Special Characters")
+  // } else if (lowerCaseChar === false && upperCaseChar === false && specialChar === true) {
+  //   alert("Thank you\n\nYou have selected: Special Characters only")
+  // };
+
+  // var lowerChoice = if(lowerCaseChar === true) {"Yes"} else {"No"}
+  // var upperChoice = if(upperCaseChar === true) {"Yes"} else {"No"}
+  // var specialChoice = if(specialCaseChar === true) {"Yes"} else {"No"}
+  // var numChoice = if(numCaseChar === true) {"Yes"} else {"No"}
+
+  alert ("Thank you, you have chosen:\n\n" + "Lower Case Characters: " + lowerCaseChar + "\nUpper Case Characters: " + upperCaseChar + "\nSpecial Characters: " + specialChar + "\nNumeral Characters: " + numChar )
 
   var charSetLower = "abcdefghijklmnopqrstuvwxyz";
   var charSetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var charSetSpecial = "!\#$%&'()*+,-./:;<=>?@[]^_{|}~";
+  var charSetNum = "0123456789";
   var characterOptions = "";
 
   if (lowerCaseChar === true) {
@@ -66,6 +77,10 @@ function generatePassword() {
   
   if (specialChar === true) {
     characterOptions += charSetSpecial;
+  };
+
+  if (numChar === true) {
+    characterOptions += charSetNum;
   };
 
   var passwordEntry = "";
