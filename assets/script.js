@@ -1,8 +1,6 @@
 var generateBtn = document.querySelector("#generate");
 
-generateBtn.addEventListener("click", myFunction);
-
-function myFunction() {
+function generatePassword() {
   var lengthChoice = prompt("Criteria 1 of 2: Password Length\n\nPick a password length by typing a number from 8 to 128:");
 
   while (isNaN(parseInt(lengthChoice)) === true || parseInt(lengthChoice) > 128 || parseInt(lengthChoice) < 8) {
@@ -53,67 +51,40 @@ function myFunction() {
     alert("Thank you\n\nYou have selected: Special Characters only")
   };
 
+  var charSetLower = "abcdefghijklmnopqrstuvwxyz";
+  var charSetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var charSetSpecial = "!\#$%&'()*+,-./:;<=>?@[]^_{|}~";
+  var characterOptions = "";
 
+  if (lowerCaseChar === true) {
+    characterOptions += charSetLower;
+    
+  };
+  if (upperCaseChar === true) {
+    characterOptions += charSetUpper;
+    }
+  
+  if (specialChar === true) {
+    characterOptions += charSetSpecial;
+  };
 
-  // while (characterTypeCount === 0) {
-  //   if(confirm("Do you want to ")
-  // }
+  var passwordEntry = "";
 
-  // var lowerCaseChoice = confirm("Criteria 1 of 2: Password Character Types \n Pick a password length by typing a number from 8 to 128:");
+  for (var i = 1; i < (parseInt(lengthChoice)+1); i++) {
+    passwordEntry += characterOptions.charAt(Math.floor(Math.random() * (characterOptions.length-1)));
+  };
 
-  // while (isNaN(parseInt(lengthChoice)) === true && parseInt(lengthChoice) > 128 || parseInt(lengthChoice) < 8) {
-  //   alert("Sorry, '" + lengthChoice + "' is not a valid choice. \nPlease select a number from 8 to 128, to set your password length.");
-  //   lengthChoice = prompt("Criteria 2 of 2: Password Length\n Pick a password length by typing a number from 8 to 128:");
-  // };
-
-  // alert(lengthChoice);
-
-
-
-  // if ((lengthChoice) === "NaN") {
-  //   alert("Sorry, '" + lengthChoice + "' is not a valid choice. \nPlease select a number from 8 to 128, to set your password length.");
-  //   lengthChoice = prompt("Criteria 1 of 3: Password Length\n Pick a password length by typing a number from 8 to 128:")
-  // }
-
-
-
-  // alert(lengthChoice); 
-  // while (lengthChoice === NaN || lengthChoice > 128 || lengthChoice < 8) {
-  //   alert("Sorry, '" + lengthChoice + "' is not a valid choice. \nPlease select a number from 8 to 128, to set your password length.");
-  //   lengthChoice = parseInt(prompt("Criteria 1 of 3: Password Length\n Pick a password length by typing a number from 8 to 128:"));
-  //   alert(lengthChoice);
-  // };
-  // alert(lengthChoice);
-  // // if (typeof(lengthChoice) != "number" || lengthChoice > 128 || lengthChoice < 8) {
-  // //       alert("Sorry, '" + lengthChoice + "' is not a valid choice. \nPlease select a number from 8 to 128, to set your password length.");
-  // //       lengthChoice = prompt("Criteria 1 of 3: Password Length\n Pick a password length by typing a number from 8 to 128:");
-  // //   } else {
-  // // alert(typeof(lengthChoice));
-  // // };
-
+  return passwordEntry;
 
 }
 
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
+  passwordText.value = password;
+  alert("New password generated!");
 
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
+}
 
-
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword());
-
-// function generatePassword() {
-
-//   prompt("do you want to play a game?")
-
-// }
+generateBtn.addEventListener("click", writePassword);
